@@ -1,0 +1,217 @@
+$, target=adjust_tolerance, value=0.0125
+
+@, label=loot_no_domain
+*, x=0.120, y=0.303, frequency=1, skip=False, adjust=True
+    Wait, duration=1
+    Buff
+    Shikigami, direction=right, attacks=2, repetitions=1
+    Yukimusume
+*, x=0.138, y=0.414, frequency=1, skip=False, adjust=False
+    Shikigami, direction=right, attacks=2, repetitions=1
+*, x=0.336, y=0.414, frequency=1, skip=False, adjust=False
+    Legion
+*, x=0.461, y=0.414, frequency=1, skip=False, adjust=False
+    NineTails
+*, x=0.737, y=0.414, frequency=1, skip=False, adjust=False
+    Kishin
+*, x=0.868, y=0.414, frequency=1, skip=False, adjust=True
+*, x=0.685, y=0.414, frequency=1, skip=False, adjust=True
+    Teleport, direction=up, jump=False
+*, x=0.750, y=0.303, frequency=1, skip=False, adjust=False
+    Walk, direction=right, duration=0.15
+*, x=0.865, y=0.303, frequency=1, skip=False, adjust=True
+    Shikigami, direction=left, attacks=3, repetitions=1
+    Wait, duration=0.1
+*, x=0.865, y=0.138, frequency=1, skip=False, adjust=False
+    Shikigami, direction=left, attacks=2, repetitions=1
+    Walk, direction=left, duration=0.3
+*, x=0.645, y=0.138, frequency=1, skip=False, adjust=True
+    Wait, duration=0.1
+    Teleport, direction=down, jump=False
+*, x=0.539, y=0.237, frequency=1, skip=False, adjust=False
+    Yaksha, direction=right
+*, x=0.468, y=0.237, frequency=1, skip=False, adjust=True
+    Exorcist, jump=False
+    Wait, duration=0.3
+    Teleport, direction=left, jump=False
+*, x=0.315, y=0.151, frequency=1, skip=False, adjust=True
+    Teleport, direction=down, jump=False
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=False
+    Legion
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=False
+    Buff
+>, label=main1, frequency=1, skip=False
+
+@, label=main1
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=True
+    Shikigami, direction=left, attacks=2, repetitions=1
+    Shikigami, direction=right, attacks=3, repetitions=1
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=False
+    Wait, duration=0.2
+    Exorcist, jump=False
+    Teleport, direction=up, jump=False
+    Wait, duration=0.3
+    Shikigami, direction=right, attacks=3, repetitions=1
+    Teleport, direction=down, jump=False
+*, x=0.460, y=0.342, frequency=4, skip=1, adjust=False
+    Shikigami, direction=right, attacks=2, repetitions=1
+*, x=0.500, y=0.342, frequency=4, skip=1, adjust=False
+>, label=boss1, frequency=1, skip=False
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=False
+    Teleport, direction=right, jump=False
+    Shikigami, direction=right, attacks=2, repetitions=1
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=False
+>, label=main1, frequency=1, skip=False
+
+@, label=main2
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=True
+    Shikigami, direction=left, attacks=2, repetitions=1
+    Shikigami, direction=right, attacks=3, repetitions=1
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=False
+    Wait, duration=0.2
+    Exorcist, jump=False
+    Teleport, direction=up, jump=False
+    Wait, duration=0.3
+    Shikigami, direction=right, attacks=3, repetitions=1
+    Teleport, direction=down, jump=False
+*, x=0.460, y=0.342, frequency=5, skip=True, adjust=False
+    Shikigami, direction=right, attacks=2, repetitions=1
+*, x=0.500, y=0.342, frequency=5, skip=True, adjust=False
+>, label=boss2, frequency=1, skip=False
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=False
+    Teleport, direction=right, jump=False
+    Shikigami, direction=right, attacks=2, repetitions=1
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=False
+>, label=main2, frequency=1, skip=False
+
+@, label=boss1
+*, x=0.539, y=0.237, frequency=1, skip=False, adjust=False
+    Yaksha, direction=right
+*, x=0.510, y=0.237, frequency=1, skip=False, adjust=False
+    Teleport, direction=down, jump=False
+*, x=0.530, y=0.342, frequency=1, skip=False, adjust=False
+    Shikigami, direction=left, attacks=2, repetitions=1
+*, x=0.500, y=0.342, frequency=3, skip=True, adjust=False
+>, label=main2, frequency=1, skip=False
+*, x=0.500, y=0.342, frequency=1, skip=False, adjust=False
+>, label=main1, frequency=1, skip=False
+
+@, label=boss2
+*, x=0.539, y=0.237, frequency=1, skip=False, adjust=False
+    Yaksha, direction=right
+*, x=0.510, y=0.237, frequency=1, skip=False, adjust=False
+    Teleport, direction=down, jump=False
+*, x=0.530, y=0.342, frequency=1, skip=False, adjust=False
+    Shikigami, direction=left, attacks=2, repetitions=1
+*, x=0.500, y=0.342, frequency=1, skip=False, adjust=False
+>, label=loot_with_domain, frequency=1, skip=False
+
+@, label=loot_with_domain
+*, x=0.120, y=0.303, frequency=1, skip=False, adjust=True
+    Shikigami, direction=right, attacks=2, repetitions=1
+    Yukimusume
+*, x=0.138, y=0.414, frequency=1, skip=False, adjust=False
+    Shikigami, direction=right, attacks=2, repetitions=1
+*, x=0.336, y=0.414, frequency=1, skip=False, adjust=True
+    Domain
+*, x=0.461, y=0.414, frequency=1, skip=False, adjust=False
+    NineTails
+*, x=0.737, y=0.414, frequency=1, skip=False, adjust=False
+    Kishin
+*, x=0.868, y=0.414, frequency=1, skip=False, adjust=True
+*, x=0.685, y=0.414, frequency=1, skip=False, adjust=True
+    Teleport, direction=up, jump=False
+*, x=0.750, y=0.303, frequency=1, skip=False, adjust=False
+    Walk, direction=right, duration=0.15
+*, x=0.865, y=0.303, frequency=1, skip=False, adjust=True
+    Shikigami, direction=left, attacks=3, repetitions=1
+    Wait, duration=0.1
+*, x=0.865, y=0.138, frequency=1, skip=False, adjust=False
+    Shikigami, direction=left, attacks=2, repetitions=1
+    Walk, direction=left, duration=0.3
+*, x=0.645, y=0.138, frequency=1, skip=False, adjust=True
+    Wait, duration=0.1
+    Teleport, direction=down, jump=False
+*, x=0.539, y=0.237, frequency=1, skip=False, adjust=False
+    Wait, duration=0.1
+    Vanquisher
+*, x=0.480, y=0.237, frequency=1, skip=False, adjust=True
+*, x=0.580, y=0.237, frequency=1, skip=False, adjust=True
+    Walk, direction=left, duration=0.15
+    Walk, direction=right, duration=0.1
+    Walk, direction=left, duration=0.1
+    Walk, direction=right, duration=0.1
+    Walk, direction=left, duration=0.15
+    Walk, direction=right, duration=0.1
+    Walk, direction=left, duration=0.1
+    Walk, direction=right, duration=0.1
+    Walk, direction=left, duration=0.15
+    Walk, direction=right, duration=0.1
+    Walk, direction=left, duration=0.1
+    Walk, direction=right, duration=0.1
+    Walk, direction=left, duration=0.15
+    Walk, direction=right, duration=0.1
+    Walk, direction=left, duration=0.1
+    Walk, direction=right, duration=0.1
+*, x=0.600, y=0.237, frequency=1, skip=False, adjust=True
+    Vanquisher
+    Wait, duration=0.15
+    Exorcist, jump=False
+    Wait, duration=0.3
+    Teleport, direction=right, jump=False
+*, x=0.715, y=0.138, frequency=1, skip=False, adjust=False
+>, label=main3, frequency=1, skip=False
+
+@, label=main3
+*, x=0.715, y=0.138, frequency=1, skip=False, adjust=False
+    Shikigami, direction=left, attacks=3, repetitions=1
+    Wait, duration=0.15
+    Shikigami, direction=right, attacks=3, repetitions=1
+*, x=0.715, y=0.138, frequency=1, skip=False, adjust=True
+    Teleport, direction=down, jump=False
+*, x=0.715, y=0.303, frequency=1, skip=False, adjust=False
+    Shikigami, direction=left, attacks=3, repetitions=1
+    Wait, duration=0.15
+    Shikigami, direction=right, attacks=3, repetitions=1
+    Wait, duration=0.1
+*, x=0.715, y=0.303, frequency=3, skip=False, adjust=True
+    Exorcist, jump=False
+    Wait, duration=0.3
+*, x=0.715, y=0.303, frequency=12, skip=True, adjust=False
+    Teleport, direction=left, jump=True
+>, label=boss3, frequency=1, skip=False
+*, x=0.715, y=0.303, frequency=1, skip=False, adjust=False
+>, label=main3, frequency=1, skip=False
+
+@, label=boss3
+*, x=0.539, y=0.237, frequency=1, skip=False, adjust=False
+    Yaksha, direction=right
+*, x=0.510, y=0.237, frequency=1, skip=False, adjust=False
+    Teleport, direction=down, jump=False
+*, x=0.530, y=0.342, frequency=1, skip=False, adjust=False
+    Shikigami, direction=left, attacks=2, repetitions=1
+*, x=0.500, y=0.342, frequency=2, skip=True, adjust=False
+>, label=loot_no_domain, frequency=1, skip=False
+*, x=0.500, y=0.342, frequency=1, skip=False, adjust=False
+>, label=main4, frequency=1, skip=False
+
+@, label=main4
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=True
+    Shikigami, direction=left, attacks=2, repetitions=1
+    Shikigami, direction=right, attacks=3, repetitions=1
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=False
+    Wait, duration=0.2
+    Exorcist, jump=False
+    Teleport, direction=up, jump=False
+    Wait, duration=0.3
+    Shikigami, direction=right, attacks=3, repetitions=1
+    Teleport, direction=down, jump=False
+*, x=0.460, y=0.342, frequency=5, skip=True, adjust=False
+    Shikigami, direction=right, attacks=2, repetitions=1
+*, x=0.500, y=0.342, frequency=5, skip=True, adjust=False
+>, label=boss3, frequency=1, skip=False
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=False
+    Teleport, direction=right, jump=False
+    Shikigami, direction=right, attacks=2, repetitions=1
+*, x=0.283, y=0.303, frequency=1, skip=False, adjust=False
+>, label=main4, frequency=1, skip=False
