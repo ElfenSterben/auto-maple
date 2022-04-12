@@ -14,6 +14,7 @@ import numpy as np
 from os.path import splitext, basename
 from routine import Routine
 from components import Point
+from command_books.kanna import EnumKannaKey
 from vkeys import press, click
 
 
@@ -100,7 +101,7 @@ class Bot:
         adjust = self.command_book['adjust']
         adjust(*self.rune_pos).execute()
         time.sleep(0.2)
-        press('y', 1, down_time=0.2)        # Press 'y' to interact with rune in-game
+        press(EnumKannaKey.SpaceCatch, 1, down_time=0.2)        # Press 'y' to interact with rune in-game
         print('\nSolving rune:')
         inferences = []
         for _ in range(15):

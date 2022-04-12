@@ -9,12 +9,33 @@ from components import Command
 from vkeys import press, key_down, key_up
 
 
+class EnumKannaKey:
+    ManaWarp = 'lshift'
+    ShikigamiHaunting = 'a'
+    GostYakshaBoss = 'q'
+    TenguStrike = 'd'
+    KishinShoukan = 'g'
+    ExorcistCharm = 's'
+    NineTailedFury = 'e'
+    SpiritDoamin = '3'
+    GhostYakshaGreatOnilordLegion = '4'
+    VeritablePandemonium = 'ctrl'
+    VanquisherCharm = 'f'
+    HakuReborn = '1'
+    YukimusumeShoukan = '2'
+    ManaBalance = 'w'
+    Jump = 'c'
+    BlossomBarrier = 'r'
+    ShikigamiCharm = 'h'
+    SpaceCatch = 'space'
+    PetFood = 'end'
+
+
 def step(direction, target):
     """
     Performs one movement step in the given DIRECTION towards TARGET.
     Should not press any arrow keys, as those are handled by Auto Maple.
     """
-
     num_presses = 2
     if direction == 'up' or direction == 'down':
         num_presses = 1
@@ -23,10 +44,10 @@ def step(direction, target):
     d_y = target[1] - config.player_pos[1]
     if abs(d_y) > settings.move_tolerance * 1.5:
         if direction == 'down':
-            press('space', 3)
+            press(EnumKannaKey.Jump, 3)
         elif direction == 'up':
-            press('space', 1)
-    press('e', num_presses)
+            press(EnumKannaKey.Jump, 1)
+    press(EnumKannaKey.ManaWarp, num_presses)
 
 
 class Adjust(Command):
@@ -70,7 +91,7 @@ class Adjust(Command):
                     else:
                         key_down('down')
                         time.sleep(0.05)
-                        press('space', 3, down_time=0.1)
+                        press(EnumKannaKey.Jump, 3, down_time=0.1)
                         key_up('down')
                         time.sleep(0.05)
                     counter -= 1
@@ -88,15 +109,16 @@ class Buff(Command):
 
     def main(self):
         buffs = ['f1', 'f2']
+
         now = time.time()
         if self.haku_time == 0 or now - self.haku_time > 490:
-            press('f4', 2)
-            press('f3', 2)
+            press(EnumKannaKey.HakuReborn, 2)
+            press(EnumKannaKey.PetFood, 2)
             self.haku_time = now
-        if self.buff_time == 0 or now - self.buff_time > settings.buff_cooldown:
-            for key in buffs:
-                press(key, 3, up_time=0.3)
-            self.buff_time = now
+        # if self.buff_time == 0 or now - self.buff_time > settings.buff_cooldown:
+        #     for key in buffs:
+        #         press(key, 3, up_time=0.3)
+        #     self.buff_time = now
 
 
 class Teleport(Command):
@@ -120,13 +142,13 @@ class Teleport(Command):
             time.sleep(0.05)
         if self.jump:
             if self.direction == 'down':
-                press('space', 3, down_time=0.1)
+                press(EnumKannaKey.Jump, 3, down_time=0.1)
             else:
-                press('space', 1)
+                press(EnumKannaKey.Jump, 1)
         if self.direction == 'up':
             key_down(self.direction)
             time.sleep(0.05)
-        press('e', num_presses)
+        press(EnumKannaKey.ManaWarp, num_presses)
         key_up(self.direction)
         if settings.record_layout:
             config.layout.add(*config.player_pos)
@@ -148,7 +170,7 @@ class Shikigami(Command):
         if config.stage_fright and utils.bernoulli(0.7):
             time.sleep(utils.rand_float(0.1, 0.3))
         for _ in range(self.repetitions):
-            press('r', self.attacks, up_time=0.05)
+            press(EnumKannaKey.ShikigamiHaunting, self.attacks, up_time=0.05)
         key_up(self.direction)
         if self.attacks > 2:
             time.sleep(0.3)
@@ -160,7 +182,7 @@ class Tengu(Command):
     """Uses 'Tengu Strike' once."""
 
     def main(self):
-        press('q', 1, up_time=0.05)
+        press(EnumKannaKey.TenguStrike, 1, up_time=0.05)
 
 
 class Yaksha(Command):
@@ -184,16 +206,16 @@ class Yaksha(Command):
                 press('left', 1, down_time=0.1, up_time=0.05)
             else:
                 press('right', 1, down_time=0.1, up_time=0.05)
-        press('2', 3)
+        press(EnumKannaKey.GostYakshaBoss, 3)
 
 
 class Vanquisher(Command):
     """Holds down 'Vanquisher's Charm' until this command is called again."""
 
     def main(self):
-        key_up('f')
+        key_up(EnumKannaKey.VanquisherCharm)
         time.sleep(0.075)
-        key_down('f')
+        key_down(EnumKannaKey.VanquisherCharm)
         time.sleep(0.15)
 
 
@@ -201,14 +223,14 @@ class Kishin(Command):
     """Uses 'Kishin Shoukan' once."""
 
     def main(self):
-        press('ctrl', 4, down_time=0.1, up_time=0.15)
+        press(EnumKannaKey.KishinShoukan, 4, down_time=0.1, up_time=0.15)
 
 
 class NineTails(Command):
     """Uses 'Nine-Tailed Fury' once."""
 
     def main(self):
-        press('3', 3)
+        press(EnumKannaKey.NineTailedFury, 3)
 
 
 class Exorcist(Command):
@@ -220,47 +242,47 @@ class Exorcist(Command):
 
     def main(self):
         if self.jump:
-            press('space', 1, down_time=0.1, up_time=0.15)
-        press('w', 2, up_time=0.05)
+            press(EnumKannaKey.Jump, 1, down_time=0.1, up_time=0.15)
+        press(EnumKannaKey.ExorcistCharm, 2, up_time=0.05)
 
 
 class Domain(Command):
     """Uses 'Spirit's Domain' once."""
 
     def main(self):
-        press('z', 3)
+        press(EnumKannaKey.SpiritDoamin, 3)
 
 
 class Legion(Command):
     """Uses 'Ghost Yaksha: Great Oni Lord's Legion' once."""
 
     def main(self):
-        press('5', 2, down_time=0.1)
+        press(EnumKannaKey.GhostYakshaGreatOnilordLegion, 2, down_time=0.1)
 
 
 class BlossomBarrier(Command):
     """Places a 'Blossom Barrier' on the ground once."""
 
     def main(self):
-        press('g', 2)
+        press(EnumKannaKey.BlossomBarrier, 2)
 
 
 class Yukimusume(Command):
     """Uses 'Yuki-musume Shoukan' once."""
 
     def main(self):
-        press('c', 2)
+        press(EnumKannaKey.YukimusumeShoukan, 2)
 
 
 class Balance(Command):
     """Restores mana using 'Mana Balance' once."""
 
     def main(self):
-        press('lshift', 2)
+        press(EnumKannaKey.ManaBalance, 2)
 
 
 class Charm(Command):
     """Jumps up using 'Shikigami Charm'."""
 
     def main(self):
-        press('d', 2)
+        press(EnumKannaKey.ShikigamiCharm, 2)
